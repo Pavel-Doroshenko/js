@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <script>
+      let name = prompt("Enter your name");
+      console.log(name);
+      let targetUnit = prompt("Enter target unit (mile, inch)");
+      let value = prompt("Enter " + targetUnit + " value");
+      if (targetUnit === "mile") {
+        let kilometers = value * 1.61;
+        console.log("Miles -> " + kilometers + " kilometers");
+      } else if (targetUnit === "inch") {
+        let Centimeters = value * 2.54;
+        console.log("Inches -> " + Centimeters + " Centimeters");
+      } else {
+        console.log("Sorry, we do not support " + targetUnit);
+      }
+    </script>
+  </body>
+</html>
