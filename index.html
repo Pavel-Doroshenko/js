@@ -5,17 +5,19 @@
     <script>
       let name = prompt("Enter your name");
       console.log(name);
-      let targetUnit = prompt("Enter target unit (mile, inch)");
-      let value = prompt("Enter " + targetUnit + " value");
-      if (targetUnit === "mile") {
-        let kilometers = value * 1.61;
-        console.log("Miles -> " + kilometers + " kilometers");
-      } else if (targetUnit === "inch") {
-        let Centimeters = value * 2.54;
-        console.log("Inches -> " + Centimeters + " Centimeters");
+      let temperature = prompt("Enter target unit (c,f)");
+      let value = prompt("Enter " + temperature + " value");
+      let temp = temperature === "f" ? (value - 32) / 1.8 : value;
+      if (temp >= 30) {
+        console.log("It is hot outside");
+      } else if (temp > 20 && temp < 30) {
+        console.log("It is warm outside");
       } else {
-        console.log("Sorry, we do not support " + targetUnit);
+        console.log("It is cold outside");
       }
     </script>
+    <p>
+      <a href="/">обновить страницу</a>
+    </p>
   </body>
 </html>
