@@ -3,19 +3,32 @@
   <head> </head>
   <body>
     <script>
-      let name = prompt("Enter your name");
-      console.log(name);
-      let targetUnit = prompt("Enter target unit (mile, inch)");
-      let value = prompt("Enter " + targetUnit + " value");
-      if (targetUnit === "mile") {
-        let kilometers = value * 1.61;
-        console.log("Miles -> " + kilometers + " kilometers");
-      } else if (targetUnit === "inch") {
-        let Centimeters = value * 2.54;
-        console.log("Inches -> " + Centimeters + " Centimeters");
-      } else {
-        console.log("Sorry, we do not support " + targetUnit);
+      //let name = prompt("Enter your name");
+      //console.log(name);
+      const clouds = ["sunny", "mostly clear", "cloudy", "heavy clouds"];
+      const precipitation = ["nothing", "rain", "fog"];
+      function rnd(max) {
+        return Math.floor(Math.random() * max);
       }
+      function getForecast() {
+        const wheater = {};
+
+        const cloudIndex = rnd(clouds.length);
+        wheater.clouds = clouds[cloudIndex];
+
+        const precipitationIndex = rnd(precipitation.length);
+        wheater.precipitation = precipitation[precipitationIndex];
+
+        wheater.temperature = rnd(35) + "C";
+        return wheater;
+      }
+      function showForecast() {
+        const wheater = getForecast();
+        for (let key in wheater) {
+          alert(key + ": " + wheater[key]);
+        }
+      }
+      showForecast();
     </script>
   </body>
 </html>
