@@ -2,33 +2,52 @@
 <html lang="en">
   <head> </head>
   <body>
+    <a href="/">обновить страницу</a>
     <script>
-      //let name = prompt("Enter your name");
+      let Username = prompt("Enter your name");
       //console.log(name);
-      const clouds = ["sunny", "mostly clear", "cloudy", "heavy clouds"];
-      const precipitation = ["nothing", "rain", "fog"];
+      const wind = ["windy", "no wind", "storm"];
+      const rain = ["no rain", "rainy", "heavy rain"];
+
       function rnd(max) {
         return Math.floor(Math.random() * max);
       }
-      function getForecast() {
+      function getWheater() {
         const wheater = {};
 
-        const cloudIndex = rnd(clouds.length);
-        wheater.clouds = clouds[cloudIndex];
+        const windIndex = rnd(wind.length);
+        wheater.wind = wind[windIndex];
 
-        const precipitationIndex = rnd(precipitation.length);
-        wheater.precipitation = precipitation[precipitationIndex];
+        const rainIndex = rnd(rain.length);
+        wheater.rain = rain[rainIndex];
 
-        wheater.temperature = rnd(35) + "C";
         return wheater;
       }
-      function showForecast() {
-        const wheater = getForecast();
-        for (let key in wheater) {
-          alert(key + ": " + wheater[key]);
+
+      function weatherChek() {
+        const wheater = getWheater();
+        if (wheater.wind === "storm" || wheater.rain === "heavy rain") {
+          alert(
+            "Hello," +
+              Username +
+              " the weather is not good for a walk " +
+              wheater.rain +
+              " " +
+              wheater.wind
+          );
+        } else {
+          alert(
+            "Hello," +
+              Username +
+              " the weather nice, go outside " +
+              wheater.rain +
+              " " +
+              wheater.wind
+          );
         }
       }
-      showForecast();
+
+      weatherChek();
     </script>
   </body>
 </html>
