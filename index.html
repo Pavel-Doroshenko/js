@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head> </head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>"прогноз погоды"</title>
+  </head>
   <body>
     <a href="/">обновить страницу</a>
     <script>
       let Username = prompt("Enter your name");
+      if (Username !== "") {
+        Username = Username;
+      } else {
+        Username = prompt("Имя неможет быть пустым. Введите имя");
+      }
       const wind = ["windy", "no wind", "storm"];
       const rain = ["no rain", "rainy", "heavy rain"];
 
@@ -12,36 +20,36 @@
         return Math.floor(Math.random() * max);
       }
       function getWheater() {
-        const wheater = {};
+        const wheather = {};
 
         const windIndex = rnd(wind.length);
-        wheater.wind = wind[windIndex];
+        wheather.wind = wind[windIndex];
 
         const rainIndex = rnd(rain.length);
-        wheater.rain = rain[rainIndex];
+        wheather.rain = rain[rainIndex];
 
-        return wheater;
+        return wheather;
       }
 
       function weatherChek() {
-        const wheater = getWheater();
-        if (wheater.wind === "storm" || wheater.rain === "heavy rain") {
-          alert(
+        const wheather = getWheater();
+        if (wheather.wind === "storm" || wheather.rain === "heavy rain") {
+          document.write(
             "Hello," +
               Username +
               " the weather is not good for a walk " +
-              wheater.rain +
+              wheather.rain +
               " " +
-              wheater.wind
+              wheather.wind
           );
         } else {
-          alert(
+          document.writet(
             "Hello," +
               Username +
               " the weather nice, go outside " +
-              wheater.rain +
+              wheather.rain +
               " " +
-              wheater.wind
+              wheather.wind
           );
         }
       }
